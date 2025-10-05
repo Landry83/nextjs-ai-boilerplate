@@ -1,0 +1,182 @@
+# Next.js 15 Boilerplate - Cursor Rules
+
+## Project Overview
+This is a comprehensive Next.js 15 boilerplate with modern tools and best practices. It includes AI integration, authentication, beautiful UI components, and email services.
+
+## Technology Stack
+- **Framework**: Next.js 15 with App Router and TypeScript
+- **UI**: shadcn/ui + ReUI components with Heroicons
+- **Backend**: Supabase (database, auth, real-time)
+- **AI**: OpenRouter with multiple free models
+- **Email**: Resend with professional templates
+- **Styling**: Tailwind CSS with CSS variables
+- **Notifications**: react-hot-toast
+
+## Code Standards
+
+### TypeScript
+- Use strict mode TypeScript
+- Define proper interfaces for all props and data
+- Use type safety for API responses and form data
+- Prefer type definitions over `any`
+
+### Component Patterns
+- Follow ReUI patterns with prop-based design
+- Use shadcn/ui components as base
+- Implement proper accessibility (ARIA attributes, semantic HTML)
+- Ensure WCAG AA contrast compliance
+- Use `cn()` utility for class merging
+
+### File Organization
+- Use absolute imports with `@/` alias
+- Organize by feature, not file type
+- Keep components small and focused
+- Separate business logic from UI components
+
+### API Patterns
+- Use proper error handling with try/catch
+- Return consistent response formats
+- Implement proper HTTP status codes
+- Add input validation and sanitization
+
+### Authentication
+- Use Supabase auth patterns consistently
+- Protect routes with middleware
+- Handle auth state properly on client and server
+- Implement proper error handling for auth flows
+
+### Styling
+- Use Tailwind CSS utility classes
+- Leverage CSS variables for theming
+- Maintain consistent spacing and typography
+- Support dark mode with CSS variables
+
+## Specific Guidelines
+
+### AI Integration
+- Always validate model IDs before API calls
+- Implement proper error handling for AI responses
+- Use streaming for better UX when appropriate
+- Provide clear model descriptions and categories
+
+### Email Service
+- Use professional HTML templates
+- Include ByVeya branding in all emails
+- Implement proper error handling
+- Validate email addresses before sending
+
+### Toast Notifications
+- Use appropriate toast types (success, error, info)
+- Provide clear, actionable messages
+- Style toasts to match design system
+- Don't overuse notifications
+
+### Environment Variables
+- Never hardcode sensitive data
+- Use proper environment variable naming
+- Validate required variables at startup
+- Document all required environment variables
+
+## Accessibility Requirements
+- Use semantic HTML elements
+- Provide proper ARIA labels and descriptions
+- Ensure keyboard navigation works
+- Maintain proper color contrast ratios
+- Test with screen readers
+
+## Performance Considerations
+- Use Server Components by default
+- Only use Client Components when necessary
+- Optimize images with Next.js Image component
+- Implement proper loading states
+- Use proper error boundaries
+
+## Security Best Practices
+- Validate all user inputs
+- Use Supabase RLS for data security
+- Implement proper CORS policies
+- Never expose sensitive data in client code
+- Use proper authentication checks
+
+## Documentation Standards
+- Document all API endpoints
+- Provide usage examples for components
+- Keep README.md up to date
+- Document environment setup clearly
+- Include troubleshooting guides
+
+## Testing Approach
+- Write tests for utility functions
+- Test API endpoints thoroughly
+- Validate component behavior
+- Test authentication flows
+- Ensure accessibility compliance
+
+## Deployment Guidelines
+- Use environment-specific configurations
+- Set up proper redirect URLs for auth
+- Configure domain verification for email
+- Implement proper error monitoring
+- Use proper SSL certificates
+
+## Code Review Checklist
+- [ ] TypeScript types are properly defined
+- [ ] Components follow ReUI patterns
+- [ ] Accessibility requirements met
+- [ ] Error handling implemented
+- [ ] Security considerations addressed
+- [ ] Performance optimizations applied
+- [ ] Documentation updated
+- [ ] Tests written and passing
+
+## Common Patterns
+
+### Component Structure
+```typescript
+interface ComponentProps {
+  className?: string
+  children: React.ReactNode
+  variant?: 'default' | 'secondary'
+}
+
+export function Component({ className, children, variant = 'default' }: ComponentProps) {
+  return (
+    <div className={cn(baseClasses, variantClasses, className)}>
+      {children}
+    </div>
+  )
+}
+```
+
+### API Route Pattern
+```typescript
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json()
+    // Validate input
+    // Process request
+    return NextResponse.json({ success: true, data: result })
+  } catch (error) {
+    console.error('API Error:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+  }
+}
+```
+
+### Auth Check Pattern
+```typescript
+const { data: { user } } = await supabase.auth.getUser()
+if (!user) {
+  return NextResponse.redirect(new URL('/login', request.url))
+}
+```
+
+## Remember
+- Always prioritize user experience
+- Maintain code quality and consistency
+- Follow security best practices
+- Keep accessibility in mind
+- Document everything clearly
+- Test thoroughly before deployment
+
+Built by [ByVeya](https://byveya.com) - Modern web development solutions
