@@ -3,7 +3,8 @@
 import { useState, useRef, KeyboardEvent } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Send, Square } from 'lucide-react'
+import { IconSend as TablerSend } from '@tabler/icons-react'
+import { Square as PhosphorSquare } from 'phosphor-react'
 import { cn } from '@/lib/utils'
 
 interface ChatInputProps {
@@ -62,7 +63,7 @@ export function ChatInput({
               className="h-8 w-8 p-0"
               aria-label="Stop generation"
             >
-              <Square className="w-4 h-4" />
+              <PhosphorSquare className="w-4 h-4" />
             </Button>
           ) : (
             <Button
@@ -72,7 +73,7 @@ export function ChatInput({
               className="h-8 w-8 p-0"
               aria-label="Send message"
             >
-              <Send className="w-4 h-4" />
+              <TablerSend className="w-4 h-4" />
             </Button>
           )}
         </div>

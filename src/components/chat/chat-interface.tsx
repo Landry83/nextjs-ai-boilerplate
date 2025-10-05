@@ -10,7 +10,7 @@ import { ChatInput } from './chat-input'
 import { ChatHeader } from './chat-header'
 import { FREE_MODELS, type AIModel } from '@/lib/ai-models'
 import { toast } from 'react-hot-toast'
-import { Send } from 'lucide-react'
+import { PaperPlaneRight as PhosphorSend } from 'phosphor-react'
 
 export interface ChatMessageData {
   id: string
@@ -172,7 +172,7 @@ export function ChatInterface({ userId }: ChatInterfaceProps) {
             <div className="flex flex-col items-center justify-center h-full text-center">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-8 h-8 text-primary" />
+                  <PhosphorSend className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   Start a conversation

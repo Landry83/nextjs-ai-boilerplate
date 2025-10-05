@@ -4,13 +4,13 @@ import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { FREE_MODELS, type AIModel } from '@/lib/ai-models'
+import { IconCheck as TablerCheck } from '@tabler/icons-react'
 import {
-  Check,
-  Sparkles,
-  Code,
-  Zap,
-  Palette
-} from 'lucide-react'
+  Sparkle as PhosphorSparkle,
+  Code as PhosphorCode,
+  Lightning as PhosphorLightning,
+  Palette as PhosphorPalette
+} from 'phosphor-react'
 
 interface ModelSelectorProps {
   selectedModel: string
@@ -19,10 +19,10 @@ interface ModelSelectorProps {
 }
 
 const categoryIcons = {
-  general: Sparkles,
-  coding: Code,
-  fast: Zap,
-  creative: Palette,
+  general: PhosphorSparkle,
+  coding: PhosphorCode,
+  fast: PhosphorLightning,
+  creative: PhosphorPalette,
 }
 
 const categoryColors = {
@@ -93,7 +93,7 @@ export function ModelSelector({ selectedModel, onModelChange, className }: Model
                           <Icon className={`h-4 w-4 ${categoryColors[model.category]}`} />
                           <h3 className="font-semibold text-sm">{model.name}</h3>
                           {isSelected && (
-                            <Check className="h-4 w-4 text-primary" />
+                            <TablerCheck className="h-4 w-4 text-primary" />
                           )}
                         </div>
                         <p className="text-xs text-muted-foreground mb-2">

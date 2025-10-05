@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { ModelSelector } from '@/components/ai/model-selector'
 import { FREE_MODELS, type AIModel } from '@/lib/ai-models'
-import { RotateCcw } from 'lucide-react'
+import { IconRefresh as TablerRefresh } from '@tabler/icons-react'
 
 interface ChatHeaderProps {
   selectedModel: AIModel
@@ -56,7 +56,7 @@ export function ChatHeader({
               onClick={onClearChat}
               className="text-muted-foreground hover:text-foreground"
             >
-              <RotateCcw className="w-4 h-4 mr-2" />
+              <TablerRefresh className="w-4 h-4 mr-2" />
               Clear
             </Button>
           )}

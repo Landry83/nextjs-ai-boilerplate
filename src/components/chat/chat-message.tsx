@@ -3,7 +3,8 @@
 import { Card } from '@/components/ui/card'
 import { ChatMessageData } from './chat-interface'
 import { getModelById } from '@/lib/ai-models'
-import { UserRound, Bot } from 'lucide-react'
+import { User as PhosphorUser } from 'phosphor-react'
+import { IconRobot as TablerBot } from '@tabler/icons-react'
 import { cn } from '@/lib/utils'
 
 interface ChatMessageProps {
@@ -31,9 +32,9 @@ export function ChatMessage({ message }: ChatMessageProps) {
             : 'bg-muted text-muted-foreground'
         )}>
           {isUser ? (
-            <UserRound className="w-4 h-4" />
+            <PhosphorUser className="w-4 h-4" />
           ) : (
-            <Bot className="w-4 h-4" />
+            <TablerBot className="w-4 h-4" />
           )}
         </div>
 

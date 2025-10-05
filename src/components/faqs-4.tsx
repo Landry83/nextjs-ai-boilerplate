@@ -7,28 +7,33 @@ export default function FAQsFour() {
     const faqItems = [
         {
             id: 'item-1',
-            question: 'How long does shipping take?',
-            answer: 'Standard shipping takes 3-5 business days, depending on your location. Express shipping options are available at checkout for 1-2 business day delivery.',
+            question: 'How do I get started with this boilerplate?',
+            answer: 'Simply clone the repository, install dependencies with pnpm install, set up your environment variables, and run the development server with pnpm dev. The boilerplate includes comprehensive documentation to guide you through the setup process.',
         },
         {
             id: 'item-2',
-            question: 'What payment methods do you accept?',
-            answer: 'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and Google Pay. For enterprise customers, we also offer invoicing options.',
+            question: 'What AI models are included?',
+            answer: 'The boilerplate includes integration with OpenRouter, providing access to multiple free AI models including Llama 3.1 (8B & 70B), Google Gemini Flash, Microsoft Phi-3, and Mistral 7B. You can easily switch between models in the chat interface.',
         },
         {
             id: 'item-3',
-            question: 'Can I change or cancel my order?',
-            answer: 'You can modify or cancel your order within 1 hour of placing it. After this window, please contact our customer support team who will assist you with any changes.',
+            question: 'How does authentication work?',
+            answer: 'Authentication is handled through Supabase with email/password login, protected routes, session management, and password reset functionality. The middleware automatically protects sensitive routes and handles auth state across the application.',
         },
         {
             id: 'item-4',
-            question: 'Do you ship internationally?',
-            answer: "Yes, we ship to over 50 countries worldwide. International shipping typically takes 7-14 business days. Additional customs fees may apply depending on your country's import regulations.",
+            question: 'Can I customise the UI components?',
+            answer: 'Yes, the boilerplate uses shadcn/ui with ReUI patterns, making it easy to customise components. All components support dark mode, are WCAG AA compliant, and use CSS variables for theming. You can modify the design system to match your brand.',
         },
         {
             id: 'item-5',
-            question: 'What is your return policy?',
-            answer: 'We offer a 30-day return policy for most items. Products must be in original condition with tags attached. Some specialty items may have different return terms, which will be noted on the product page.',
+            question: 'How do I set up email functionality?',
+            answer: 'Email services are configured with Resend, including professional HTML templates for welcome emails, password reset, and notifications. Simply add your Resend API key to the environment variables and the email service will be ready to use.',
+        },
+        {
+            id: 'item-6',
+            question: 'What deployment options are available?',
+            answer: 'The boilerplate is designed for easy deployment to platforms like Vercel, Netlify, or any Node.js hosting service. It includes proper environment configuration, build optimisation, and production-ready settings for optimal performance.',
         },
     ]
 
@@ -37,7 +42,7 @@ export default function FAQsFour() {
             <div className="mx-auto max-w-5xl px-4 md:px-6">
                 <div className="mx-auto max-w-xl text-center">
                     <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
-                    <p className="text-muted-foreground mt-4 text-balance">Discover quick and comprehensive answers to common questions about our platform, services, and features.</p>
+                    <p className="text-muted-foreground mt-4 text-balance">Everything you need to know about getting started with our Next.js 15 boilerplate and its powerful features.</p>
                 </div>
 
                 <div className="mx-auto mt-12 max-w-xl">
@@ -65,7 +70,7 @@ export default function FAQsFour() {
                     <p className="text-muted-foreground mt-6 px-8">
                         Can't find what you're looking for? Contact our{' '}
                         <Link
-                            href="#"
+                            href="/signup"
                             className="text-primary font-medium hover:underline">
                             customer support team
                         </Link>

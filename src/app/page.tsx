@@ -1,21 +1,44 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { 
-  SparklesIcon, 
-  ShieldCheckIcon, 
-  EnvelopeIcon, 
-  BellIcon,
-  CodeBracketIcon,
-  PaintBrushIcon,
-  BoltIcon,
-  UserIcon,
-  CheckIcon
-} from '@heroicons/react/24/outline'
-import { ArrowRight } from 'lucide-react'
+import {
+  Database,
+  Mail,
+  BellRing,
+  Code,
+  Palette,
+  Zap,
+  UserRound,
+  Check,
+  ShieldCheck,
+  ArrowRight
+} from 'lucide-react'
+
+// Phosphor Icons
+import {
+  House as PhosphorHouse,
+  Chats as PhosphorChats,
+  Phone as PhosphorPhone,
+  Gear as PhosphorGear
+} from 'phosphor-react'
+
+// Tabler Icons
+import {
+  IconBrandNextjs as TablerNextjs,
+  IconBrandSupabase as TablerSupabase,
+  IconBrandOpenai as TablerOpenAI,
+  IconMail as TablerMail
+} from '@tabler/icons-react'
+
+// Lucide Icons
+import { Sparkles } from 'lucide-react'
 import HeroSection from '@/components/hero-section'
 import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
+import FAQsFour from '@/components/faqs-4'
+import StatsSection from '@/components/stats-4'
+import ToastDemo from '@/components/toast-demo'
+import FooterSection from '@/components/footer'
 
 const transitionVariants = {
   item: {
@@ -84,7 +107,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                    <SparklesIcon className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                    <PhosphorChats className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <CardTitle className="text-xl">AI Integration</CardTitle>
                 </div>
@@ -95,23 +118,23 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Llama 3.1 (8B & 70B)</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Google Gemini Flash</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Microsoft Phi-3</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Mistral 7B</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Model selection UI</span>
                   </li>
                 </ul>
@@ -123,7 +146,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-green-100 dark:bg-green-900/20 rounded-lg">
-                    <ShieldCheckIcon className="h-6 w-6 text-green-600 dark:text-green-400" />
+                    <ShieldCheck className="h-6 w-6 text-green-600 dark:text-green-400" />
                   </div>
                   <CardTitle className="text-xl">Authentication</CardTitle>
                 </div>
@@ -134,23 +157,23 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Email/password auth</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Protected routes</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Session management</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Password reset</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Middleware protection</span>
                   </li>
                 </ul>
@@ -162,7 +185,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-pink-100 dark:bg-pink-900/20 rounded-lg">
-                    <PaintBrushIcon className="h-6 w-6 text-pink-600 dark:text-pink-400" />
+                    <Palette className="h-6 w-6 text-pink-600 dark:text-pink-400" />
                   </div>
                   <CardTitle className="text-xl">UI Components</CardTitle>
                 </div>
@@ -173,23 +196,23 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>shadcn/ui base components</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>ReUI patterns</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Heroicons integration</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Dark mode support</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>WCAG AA compliant</span>
                   </li>
                 </ul>
@@ -201,7 +224,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                    <EnvelopeIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                    <TablerMail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <CardTitle className="text-xl">Email Service</CardTitle>
                 </div>
@@ -212,23 +235,23 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Welcome emails</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Password reset</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Notifications</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>HTML templates</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>ByVeya branding</span>
                   </li>
                 </ul>
@@ -240,7 +263,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-yellow-100 dark:bg-yellow-900/20 rounded-lg">
-                    <BellIcon className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                    <BellRing className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
                   </div>
                   <CardTitle className="text-xl">Notifications</CardTitle>
                 </div>
@@ -251,23 +274,23 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Success messages</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Error handling</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Custom styling</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Design system integration</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Accessibility support</span>
                   </li>
                 </ul>
@@ -279,7 +302,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
-                    <BoltIcon className="h-6 w-6 text-orange-600 dark:text-orange-400" />
+                    <Zap className="h-6 w-6 text-orange-600 dark:text-orange-400" />
                   </div>
                   <CardTitle className="text-xl">Performance</CardTitle>
                 </div>
@@ -290,23 +313,23 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Next.js 15 optimisations</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Server Components</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Code splitting</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>Image optimisation</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-4 w-4 text-green-600" />
+                    <Check className="h-4 w-4 text-green-600" />
                     <span>TypeScript strict mode</span>
                   </li>
                 </ul>
@@ -352,28 +375,28 @@ export default function Home() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group">
               <div className="bg-blue-100 dark:bg-blue-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <CodeBracketIcon className="h-10 w-10 text-blue-600 dark:text-blue-400" />
+                <TablerNextjs className="h-10 w-10 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Next.js 15</h3>
               <p className="text-sm text-muted-foreground">App Router & TypeScript</p>
             </div>
             <div className="text-center group">
               <div className="bg-green-100 dark:bg-green-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <ShieldCheckIcon className="h-10 w-10 text-green-600 dark:text-green-400" />
+                <TablerSupabase className="h-10 w-10 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Supabase</h3>
               <p className="text-sm text-muted-foreground">Backend & Auth</p>
             </div>
             <div className="text-center group">
               <div className="bg-purple-100 dark:bg-purple-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <SparklesIcon className="h-10 w-10 text-purple-600 dark:text-purple-400" />
+                <TablerOpenAI className="h-10 w-10 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">OpenRouter</h3>
               <p className="text-sm text-muted-foreground">AI Models</p>
             </div>
             <div className="text-center group">
               <div className="bg-pink-100 dark:bg-pink-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <PaintBrushIcon className="h-10 w-10 text-pink-600 dark:text-pink-400" />
+                <Palette className="h-10 w-10 text-pink-600 dark:text-pink-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">shadcn/ui</h3>
               <p className="text-sm text-muted-foreground">UI Components</p>
@@ -432,23 +455,23 @@ export default function Home() {
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Full boilerplate code</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>AI integration</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Authentication system</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>UI components</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Email templates</span>
                   </li>
                 </ul>
@@ -478,23 +501,23 @@ export default function Home() {
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Everything in Free</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Priority support</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Advanced AI models</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Custom email templates</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Deployment assistance</span>
                   </li>
                 </ul>
@@ -519,23 +542,23 @@ export default function Home() {
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Everything in Pro</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Dedicated support</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>Custom integrations</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>White-label options</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckIcon className="h-5 w-5 text-green-600" />
+                    <Check className="h-5 w-5 text-green-600" />
                     <span>SLA guarantee</span>
                   </li>
                 </ul>
@@ -547,6 +570,12 @@ export default function Home() {
           </AnimatedGroup>
         </div>
       </section>
+
+      {/* Stats Section */}
+      <StatsSection />
+
+      {/* FAQ Section */}
+      <FAQsFour />
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground">
@@ -586,7 +615,7 @@ export default function Home() {
               variant="secondary" 
               className="w-full sm:w-auto bg-white text-primary hover:bg-white/90">
               <Link href="/signup">
-                <UserIcon className="h-5 w-5 mr-2" />
+                <UserRound className="h-5 w-5 mr-2" />
                 Create Account
               </Link>
             </Button>
@@ -604,52 +633,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Toast Demo Section */}
+      <ToastDemo />
+
       {/* Footer */}
-      <footer className="bg-foreground text-primary-foreground py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-6">
-              <SparklesIcon className="h-8 w-8 text-primary-foreground" />
-              <h3 className="text-2xl font-bold">Next.js 15 Boilerplate</h3>
-            </div>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              A comprehensive boilerplate with AI integration, authentication, beautiful UI components, 
-              and everything you need to start building production-ready applications.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Link href="/login" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                Sign In
-              </Link>
-              <Link href="/signup" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                Get Started
-              </Link>
-              <Link href="/dashboard" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                Dashboard
-              </Link>
-              <Link href="/chat" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                AI Chat
-              </Link>
-            </div>
-            <div className="border-t border-border pt-8">
-              <p className="text-muted-foreground mb-4">
-                Built with ❤️ using modern web technologies
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Built by{' '}
-                <a 
-                  href="https://byveya.com" 
-                  className="text-primary-foreground hover:text-primary-foreground/80 transition-colors underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ByVeya
-                </a>
-                {' '} - Modern web development solutions
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <FooterSection />
     </div>
   );
 }
