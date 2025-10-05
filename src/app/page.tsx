@@ -14,21 +14,21 @@ import {
   ArrowRight
 } from 'lucide-react'
 
-// Phosphor Icons
-import {
-  House as PhosphorHouse,
-  Chats as PhosphorChats,
-  Phone as PhosphorPhone,
-  Gear as PhosphorGear
-} from 'phosphor-react'
+// Phosphor Icons - temporarily commented out
+// import {
+//   House as PhosphorHouse,
+//   Chats as PhosphorChats,
+//   Phone as PhosphorPhone,
+//   Gear as PhosphorGear
+// } from 'phosphor-react'
 
-// Tabler Icons
-import {
-  IconBrandNextjs as TablerNextjs,
-  IconBrandSupabase as TablerSupabase,
-  IconBrandOpenai as TablerOpenAI,
-  IconMail as TablerMail
-} from '@tabler/icons-react'
+// Tabler Icons - temporarily commented out due to build issues
+// import {
+//   IconBrandNextjs as TablerNextjs,
+//   IconBrandSupabase as TablerSupabase,
+//   IconBrandOpenai as TablerOpenAI,
+//   IconMail as TablerMail
+// } from '@tabler/icons-react'
 
 // Lucide Icons
 import { Sparkles } from 'lucide-react'
@@ -107,7 +107,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                    <PhosphorChats className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                    <Sparkles className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <CardTitle className="text-xl">AI Integration</CardTitle>
                 </div>
@@ -224,7 +224,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                    <TablerMail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                    <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <CardTitle className="text-xl">Email Service</CardTitle>
                 </div>
@@ -375,21 +375,21 @@ export default function Home() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group">
               <div className="bg-blue-100 dark:bg-blue-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <TablerNextjs className="h-10 w-10 text-blue-600 dark:text-blue-400" />
+                <Code className="h-10 w-10 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Next.js 15</h3>
               <p className="text-sm text-muted-foreground">App Router & TypeScript</p>
             </div>
             <div className="text-center group">
               <div className="bg-green-100 dark:bg-green-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <TablerSupabase className="h-10 w-10 text-green-600 dark:text-green-400" />
+                <Database className="h-10 w-10 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Supabase</h3>
               <p className="text-sm text-muted-foreground">Backend & Auth</p>
             </div>
             <div className="text-center group">
               <div className="bg-purple-100 dark:bg-purple-900/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <TablerOpenAI className="h-10 w-10 text-purple-600 dark:text-purple-400" />
+                <Sparkles className="h-10 w-10 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">OpenRouter</h3>
               <p className="text-sm text-muted-foreground">AI Models</p>
