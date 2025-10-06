@@ -460,6 +460,179 @@ function ChatInterface() {
 - **Real-time Updates**: Optimistic updates with error handling
 - **Accessibility**: WCAG AA compliant chat interface
 
+### 📸 Unsplash API Integration
+
+This boilerplate includes a comprehensive Unsplash API integration for accessing high-quality stock photos, enabling rich visual content in your applications.
+
+#### 🌟 Features
+- **Search Photos**: Full-text search across millions of photos
+- **Random Photos**: Get random photos with filtering options
+- **Photo Details**: Retrieve individual photo information and metadata
+- **User Photos**: Access photos from specific Unsplash users
+- **List Photos**: Browse curated photo collections
+- **Download Tracking**: Proper attribution and download tracking (Unsplash requirement)
+
+#### 🔧 API Endpoints
+
+**Search Photos**
+```typescript
+// GET /api/unsplash?action=search&query=nature&page=1&per_page=10
+const response = await fetch('/api/unsplash?action=search&query=nature&page=1&per_page=10')
+const data = await response.json()
+// Returns: { total: number, total_pages: number, results: UnsplashPhoto[] }
+```
+
+**Get Random Photos**
+```typescript
+// GET /api/unsplash?action=random&count=5&query=mountains
+const response = await fetch('/api/unsplash?action=random&count=5&query=mountains')
+const data = await response.json()
+// Returns: UnsplashPhoto | UnsplashPhoto[]
+```
+
+**Get Photo Details**
+```typescript
+// GET /api/unsplash?action=photo&id=abc123
+const response = await fetch('/api/unsplash?action=photo&id=abc123')
+const photo = await response.json()
+// Returns: UnsplashPhoto
+```
+
+**List Photos**
+```typescript
+// GET /api/unsplash?action=list&page=1&per_page=10&order_by=latest
+const response = await fetch('/api/unsplash?action=list&page=1&per_page=10&order_by=latest')
+const photos = await response.json()
+// Returns: UnsplashPhoto[]
+```
+
+#### 📋 Photo Object Structure
+```typescript
+interface UnsplashPhoto {
+  id: string
+  created_at: string
+  width: number
+  height: number
+  color: string
+  description: string | null
+  user: {
+    name: string
+    username: string
+    profile_image: {
+      small: string
+      medium: string
+      large: string
+    }
+  }
+  urls: {
+    raw: string
+    full: string
+    regular: string
+    small: string
+    thumb: string
+  }
+  links: {
+    html: string
+    download: string
+  }
+}
+```
+
+#### 🛠️ Usage Examples
+
+**Frontend Integration**
+```tsx
+import { useState, useEffect } from 'react'
+
+function PhotoGallery() {
+  const [photos, setPhotos] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/unsplash?action=search&query=technology&per_page=12')
+      .then(res => res.json())
+      .then(data => {
+        setPhotos(data.results)
+        setLoading(false)
+      })
+  }, [])
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {photos.map(photo => (
+        <div key={photo.id} className="relative">
+          <img
+            src={photo.urls.small}
+            alt={photo.description || 'Unsplash photo'}
+            className="w-full h-48 object-cover rounded-lg"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
+            <p className="text-sm">Photo by {photo.user.name}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+```
+
+**Server-side Usage**
+```typescript
+// In a Next.js API route or server component
+import { searchPhotos, getRandomPhotos } from '@/lib/unsplash'
+
+export async function getServerSideProps() {
+  try {
+    // Search for photos
+    const searchResults = await searchPhotos('nature', { per_page: 10 })
+
+    // Get random photos
+    const randomPhotos = await getRandomPhotos({ count: 5, query: 'landscape' })
+
+    return {
+      props: {
+        searchResults: searchResults.results,
+        randomPhotos
+      }
+    }
+  } catch (error) {
+    console.error('Unsplash API error:', error)
+    return { props: { photos: [] } }
+  }
+}
+```
+
+#### ⚙️ Configuration
+
+Add your Unsplash Access Key to `.env.local`:
+```env
+UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
+```
+
+**Getting an Unsplash API Key:**
+1. Visit [unsplash.com/developers](https://unsplash.com/developers)
+2. Create a developer account
+3. Register a new application
+4. Copy your Access Key
+
+#### 📖 Unsplash Guidelines
+- **Attribution Required**: Always credit photographers and Unsplash
+- **Download Tracking**: Use the provided download URLs for proper attribution
+- **Rate Limits**: 50 requests/hour for demo apps, higher limits for production
+- **Hotlinking**: Direct use of image URLs is required (not allowed to download and rehost)
+
+**Proper Attribution Example:**
+```tsx
+<img
+  src={photo.urls.regular}
+  alt={photo.description || 'Photo'}
+  onClick={() => window.open(photo.links.html, '_blank')}
+/>
+<div className="photo-credit">
+  Photo by <a href={photo.user.links.html} target="_blank">{photo.user.name}</a> on <a href="https://unsplash.com" target="_blank">Unsplash</a>
+</div>
+```
+
 ## 🔐 Enterprise Authentication System
 
 This boilerplate implements a comprehensive authentication system using Supabase Auth, providing enterprise-grade security with a seamless user experience.

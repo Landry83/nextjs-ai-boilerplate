@@ -128,13 +128,46 @@ const response = await chatWithAI({
 // Email templates
 export async function sendWelcomeEmail(data: WelcomeEmailData) {
   const html = `<!-- Professional HTML template -->`
-  
+
   return await resend.emails.send({
     from: 'noreply@byveya.com',
     to: data.to,
     subject: 'Welcome!',
     html,
   })
+}
+```
+
+## Image & Media Services
+
+### Unsplash API
+- **SDK**: Custom TypeScript client
+- **Features**:
+  - Photo search with advanced filtering
+  - Random photo generation
+  - Individual photo details
+  - User photo collections
+  - Professional attribution tracking
+- **Configuration**: Access key-based authentication
+- **Rate Limits**: 50 requests/hour (demo), higher for production
+
+### Unsplash Integration Pattern
+```typescript
+// Client-side usage
+const response = await fetch('/api/unsplash?action=search&query=nature&per_page=12')
+const data = await response.json()
+
+// Server-side usage
+import { searchPhotos } from '@/lib/unsplash'
+const results = await searchPhotos('technology', { per_page: 10 })
+
+// Required attribution
+function PhotoAttribution({ photo }: { photo: UnsplashPhoto }) {
+  return (
+    <a href={photo.links.html} target="_blank" rel="noopener noreferrer">
+      Photo by {photo.user.name} on Unsplash
+    </a>
+  )
 }
 ```
 
@@ -195,6 +228,9 @@ OPENROUTER_API_KEY=your_openrouter_api_key
 
 # Resend
 RESEND_API_KEY=your_resend_api_key
+
+# Unsplash
+UNSPLASH_ACCESS_KEY=your_unsplash_access_key
 
 # App
 NEXT_PUBLIC_APP_URL=http://localhost:3000

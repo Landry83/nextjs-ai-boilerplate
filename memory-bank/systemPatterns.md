@@ -105,6 +105,96 @@ try {
 }
 ```
 
+#### Unsplash API Integration Pattern
+```typescript
+// API route pattern for external services
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url)
+    const action = searchParams.get('action')
+
+    switch (action) {
+      case 'search': {
+        const query = searchParams.get('query')
+        const params: SearchPhotosParams = {
+          query: query!,
+          page: parseInt(searchParams.get('page') || '1'),
+          per_page: parseInt(searchParams.get('per_page') || '10'),
+          orientation: searchParams.get('orientation') as 'landscape' | 'portrait' | 'squarish',
+          order_by: searchParams.get('order_by') as 'latest' | 'oldest' | 'popular' | 'relevant',
+        }
+
+        const result = await searchPhotos(query!, params)
+        return NextResponse.json(result)
+      }
+
+      case 'random': {
+        const params: RandomPhotosParams = {
+          count: parseInt(searchParams.get('count') || '1'),
+          query: searchParams.get('query'),
+          orientation: searchParams.get('orientation') as 'landscape' | 'portrait' | 'squarish',
+        }
+
+        const result = await getRandomPhotos(params)
+        return NextResponse.json(result)
+      }
+
+      case 'photo': {
+        const id = searchParams.get('id')
+        if (!id) {
+          return NextResponse.json(
+            { error: 'Photo ID required' },
+            { status: 400 }
+          )
+        }
+
+        const result = await getPhoto(id)
+        return NextResponse.json(result)
+      }
+
+      default:
+        return NextResponse.json(
+          { error: 'Invalid action. Use: search, random, photo' },
+          { status: 400 }
+        )
+    }
+  } catch (error) {
+    console.error('Unsplash API Error:', error)
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+```
+
+#### Unsplash Photo Attribution Pattern
+```typescript
+// Required attribution for Unsplash photos
+function PhotoAttribution({ photo }: { photo: UnsplashPhoto }) {
+  return (
+    <div className="photo-credit">
+      <a
+        href={photo.links.html}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm text-muted-foreground hover:text-foreground"
+      >
+        Photo by {photo.user.name} on Unsplash
+      </a>
+    </div>
+  )
+}
+
+// Usage in components
+<img
+  src={photo.urls.regular}
+  alt={photo.description || 'Unsplash photo'}
+  className="w-full h-64 object-cover rounded-lg"
+/>
+<PhotoAttribution photo={photo} />
+```
+
 ### 5. State Management Patterns
 
 #### Client State

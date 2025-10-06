@@ -15,6 +15,7 @@ A comprehensive Next.js 15 boilerplate with modern tools and best practices, inc
 - Resend email service with templates
 - Toast notifications with react-hot-toast
 - **NEW**: AI Chat Interface with real-time streaming
+- **NEW**: Unsplash API integration for stock photos
 - Comprehensive documentation
 
 ### Key Features Implemented
@@ -23,8 +24,9 @@ A comprehensive Next.js 15 boilerplate with modern tools and best practices, inc
 3. **Authentication**: Complete Supabase auth flow with protected routes
 4. **UI Components**: shadcn/ui base components + ReUI patterns
 5. **Email Service**: Professional templates with ByVeya branding
-6. **Notifications**: Toast system integrated with design system
-7. **Documentation**: README, SETUP guide, and memory bank
+6. **Image Service**: Unsplash API integration with stock photos
+7. **Notifications**: Toast system integrated with design system
+8. **Documentation**: README, SETUP guide, and memory bank
 
 ### Technology Stack
 - **Frontend**: Next.js 15, TypeScript, Tailwind CSS
@@ -32,6 +34,7 @@ A comprehensive Next.js 15 boilerplate with modern tools and best practices, inc
 - **Backend**: Supabase (database, auth, real-time)
 - **AI**: OpenRouter (multiple free models)
 - **Email**: Resend with HTML templates
+- **Images**: Unsplash API for stock photos
 - **Notifications**: react-hot-toast
 - **Styling**: Tailwind CSS with CSS variables
 
@@ -40,7 +43,7 @@ A comprehensive Next.js 15 boilerplate with modern tools and best practices, inc
 src/
 ├── app/                    # Next.js App Router
 │   ├── (auth)/            # Auth pages (login, signup)
-│   ├── api/               # API routes (ai, email)
+│   ├── api/               # API routes (ai, email, unsplash)
 │   ├── chat/              # AI Chat interface
 │   ├── dashboard/         # Protected dashboard
 │   └── layout.tsx         # Root layout with providers
@@ -53,7 +56,8 @@ src/
 │   ├── supabase/          # Supabase clients
 │   ├── ai-models.ts       # AI model configs
 │   ├── openrouter.ts      # OpenRouter client
-│   └── email.ts           # Email service
+│   ├── email.ts           # Email service
+│   └── unsplash.ts        # Unsplash API client
 └── hooks/                 # Custom hooks
 ```
 
@@ -63,6 +67,7 @@ src/
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `OPENROUTER_API_KEY`
 - `RESEND_API_KEY`
+- `UNSPLASH_ACCESS_KEY`
 - `NEXT_PUBLIC_APP_URL`
 
 ### Next Steps
